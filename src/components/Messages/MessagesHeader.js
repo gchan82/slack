@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Header,Segment,Input,Icon } from 'semantic-ui-react';
-import Channels from '../SidePanel/Channels'
 
 export class MessagesHeader extends Component {
   render() {

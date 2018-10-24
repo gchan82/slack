@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import firebase from "../../firebase";
 import { Segment, Button, Input } from "semantic-ui-react";
 
-export class MessagesForm extends Component {
+export class MessageForm extends Component {
   state = {
     message: "",
     channel: this.props.currentChannel,
@@ -54,7 +54,7 @@ export class MessagesForm extends Component {
     }
   };
   render() {
-    const { errors } = this.state;
+    const { errors, message, loading } = this.state;
     return (
       <div>
         <Segment className="message__form">
@@ -62,6 +62,7 @@ export class MessagesForm extends Component {
             fluid
             name="message"
             onChange={this.handleChange}
+            value={message}
             style={{ marginBottom: "0.7em" }}
             label={<Button icon={"add"} />}
             labelPosition="left"
@@ -75,6 +76,7 @@ export class MessagesForm extends Component {
           <Button.Group icon widths="2">
             <Button
               onClick={this.sendMessage}
+              disables={loading}
               color="orange"
               content="Add Reply"
               labelPosition="left"
@@ -93,4 +95,4 @@ export class MessagesForm extends Component {
   }
 }
 
-export default MessagesForm;
+export default MessageForm;
